@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<th:block th:replace="~{fragments :: head}"></th:block>
+	<title>Le nostre pizze</title>
+</head>
+
+<body>
+	<div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<img class="card">
+					<h3 th:text="${pizza.getNome()}"></h3>
+					<div th:text="${pizza.getDescrizione()}"></div>
+					<img th:src="${pizza.getFoto()}"></img>
+					<div th:text="'Prezzo:' +' '+${pizza.getPrezzo()}+ '€'"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
