@@ -36,6 +36,6 @@ public class PizzaController {
 	public String dettaglioPizza(@PathVariable("id") Integer id, Model model) {
 		Pizza singolaPizza = pizzaRepo.getReferenceById(id);
 		model.addAttribute("pizza", singolaPizza);
-		return "pizzaDetail";
+		return "details";
 	}
 }
