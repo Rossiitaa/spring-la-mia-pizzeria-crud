@@ -3,7 +3,7 @@
 
 <head>
 	<th:block th:replace="~{fragments :: head}"></th:block>
-	<title>Le nostre pizze</title>
+	<title>Dettaglio Pizze</title>
 </head>
 
 <body>
@@ -12,14 +12,17 @@
 			<div class="row">
 				<div class="col">
 					<img class="card">
-					<h3 th:text="${pizza.getNome()}"></h3>
-					<div th:text="${pizza.getDescrizione()}"></div>
-					<img th:src="${pizza.getFoto()}"></img>
-					<div th:text="'Prezzo:' +' '+${pizza.getPrezzo()}+ '€'"></div>
+					<h3 th:text="${pizza.getName()}"></h3>
+					<div th:text="${pizza.getDescription()}"></div>
+					<img th:src="${pizza.getImg()}"></img>
+					<div th:text="'Prezzo:' +' '+${pizza.getPrice()}+ '€'"></div>
+					<button> <a class="nav-link" th:href="@{/pizza}" th:classAppend="${pagina=='pizza'}? active : not-active"> Torna indietro </a></button>
 				</div>
+				
 			</div>
 		</div>
 	</div>
+
 </body>
 
 </html>

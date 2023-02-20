@@ -7,7 +7,7 @@
 	<th:block th:replace="~{fragments :: head}"></th:block>
 </head>
 
-<body>
+<body class="container pt-4">
 	<div>
 		<div>
 			<form method="GET" action="/pizza">
@@ -16,19 +16,27 @@
 				<input type="submit" value="Invia">
 			</form>
 		</div>
-		<h1>Ecco le Pizze</h1>
+		<a class="btn btn-primary m-3" th:href="@{/create}" 
+		th:classAppend="${pagina=='create'}? active : not-active">Crea la tua pizza
+		</a>
 		<ul>
-			<li th:each="pizza:${elencoPizze}">
-				<a th:href="@{/pizza/{id}(id=${pizza.getId()})}">
-					<div th:text="${pizza.nome}"></div>
+			<li class="mb-5" th:each="pizza:${elencoPizze}">
+				<a th:href="@{/details/{id}(id=${pizza.id()})}">
+					<div th:text="${pizza.name}"></div>
 				</a>
-				<div th:text="${pizza.descrizione}"></div>
-				<img th:src="${pizza.foto}" />
-				<div th:text="'prezzo' +' '+${pizza.prezzo}+'€'"></div>
-
+				<div th:text="${pizza.description}"></div>
+				<img th:src="${pizza.img}" />
+				<div th:text="'Prezzo:' +' '+${pizza.price}+'€'"></div>
+				<a class="mb-1 btn btn-success" th:href="@{'/edit/{id}'(id=${pizza.id})}"> Modifica</a>
+				<form action="#" th:action="@{'/delete/{id}'(id=${pizza.id})}" method="post">
+					<button class="btn btn-danger" type="submit" id="submitButton">
+						Elimina
+					</button>
+				</form>
 			</li>
 		</ul>
 	</div>
+
 </body>
 
 </html>

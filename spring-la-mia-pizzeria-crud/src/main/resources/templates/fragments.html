@@ -7,13 +7,17 @@
 
 <body>
 
-	<th:block th:fragment="head">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=devide-width, initial-scale=1.0">
-		<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}" />
-		<script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}" defer></script>
-	</th:block>
+	<body>
 
+		<th:block th:fragment="head">
+			<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+			<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}" />
+		</th:block>
+
+		<div th:fragment="script">
+			<script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
+		</div>
+	</body>
 </body>
 
 </html>
